@@ -26,10 +26,11 @@ public  int  score() {
 public void add(Card card) {
 	heldCards.add(card);
 }
-//
-//public static void main(String[] args) {
-//CardDeck deck = new CardDeck();
-//CardHand playerhand = new CardHand(new ArrayList<Card>());
-//CardHand bankerhand = new CardHand(new ArrayList<Card>());
 
+public static void main(String[] args) {
+CardDeck deck = new CardDeck();
+CardHand playerhand = new CardHand(new ArrayList<Card>());
+CardHand bankerhand = new CardHand(new ArrayList<Card>());
+
+}
 }

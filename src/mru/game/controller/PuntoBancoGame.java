@@ -11,7 +11,12 @@ public class PuntoBancoGame {
 private CardDeck deck; 
 
 public String winner() {
-	if (playerhand.score() > bankerhand.score ()){
+	CardHand playerhand = new CardHand();
+	CardHand bankerhand = new CardHand();
+	
+	playerhand.add
+	
+	if (playerhand.score() > bankerhand.score()){
 		 return "playerHand wins"
 		}
 
