@@ -23,7 +23,7 @@ public class AppMenu {
 		System.out.println("\t(E) Exit");
 		System.out.println("Enter your choice");
 		char option = keyboard.nextLine().toLowerCase().charAt(0);
-		System.out.println(option);
+//		System.out.println(option);
 		return option;
 		
 	}
@@ -32,7 +32,7 @@ public class AppMenu {
 	public char showSubMenu() {
 		char option;
 		System.out.println("Select one of this options:");
-		System.out.println("\t(T) Top player (Most Number Of Wins");
+		System.out.println("\t(T) Top player (Most Number Of Wins)");
 		System.out.println("\t(L) Looking For a Name?");
 		System.out.println("\t(B) Back To Main Menu");
 		System.out.println("Enter your choice");

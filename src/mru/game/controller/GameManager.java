@@ -72,6 +72,7 @@ public class GameManager {
 				Player playerInfo = new Player(name, balance, numberOfWins);
 				players.add(playerInfo);
 			}
+			fileReader.close();
 		}
 		}
 	private void launchApplication() throws IOException {
@@ -79,10 +80,10 @@ public class GameManager {
 		
 		while (stopLoop) {
 			char option = showMenu.showMainMenu();
-			System.out.print(option);
+//			System.out.print(option);
 			switch (option) {
-			case 't':
-				System.out.print("here");
+			case 'p':
+//				System.out.print("here");
 				playGame();
 				break;
 			case 's':
@@ -124,7 +125,7 @@ public class GameManager {
 		
 	}
 	private void search() {
-		showMenu.showSubMenu();
+//		showMenu.showSubMenu();
 		boolean flag = true;
 		while (flag) {
 			char option = showMenu.showSubMenu();
