@@ -17,13 +17,13 @@ public class AppMenu {
 	}
 	// printing the main menu
 	public char showMainMenu() {
-		char option;
 		System.out.println("Select one of this options");
 		System.out.println("\t(P) Play game");
 		System.out.println("\t(S) Search");
 		System.out.println("\t(E) Exit");
 		System.out.println("Enter your choice");
-		option = keyboard.nextLine().toLowerCase().charAt(0);
+		char option = keyboard.nextLine().toLowerCase().charAt(0);
+		System.out.println(option);
 		return option;
 		
 	}
@@ -33,7 +33,7 @@ public class AppMenu {
 		char option;
 		System.out.println("Select one of this options:");
 		System.out.println("\t(T) Top player (Most Number Of Wins");
-		System.out.println("\t(N) Looking For a Name?");
+		System.out.println("\t(L) Looking For a Name?");
 		System.out.println("\t(B) Back To Main Menu");
 		System.out.println("Enter your choice");
 		option = keyboard.nextLine().toLowerCase().charAt(0);
@@ -45,7 +45,7 @@ public class AppMenu {
 		 String name = keyboard.nextLine().trim();
 		 return name;
 	}
-	public void foundPlayer(Player nameFound) {
+	public void showPlayer(Player nameFound) {
 		System.out.println(nameFound);
 	}
 }
