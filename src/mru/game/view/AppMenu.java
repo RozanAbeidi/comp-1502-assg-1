@@ -61,4 +61,10 @@ public class AppMenu {
 		System.out.format("+===========+============+===========+%n");
 
 	}
+	public void showMassage() {
+//		String leftAlignFormat = "| %-9s | %-10d |%n";
+		System.out.format("********************************************************************%n");
+//		System.out.format(leftAlignFormat, name, balance +"%n");
+//		System.out.format("********************************************************************%n");
+	}
 }

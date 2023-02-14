@@ -36,20 +36,28 @@ public class GameManager {
 	public GameManager() throws IOException {
 		players = new ArrayList <>();
 		showMenu = new AppMenu();
+		String leftAlignFormat = "*** Welcome back %-15s | Your Balance is: %-12d ***%n";
+		String leftAlignFormat2 = "*** Welcome %-15s | Your initial Balance is: %-9d ***%n";
+		String bottomLine3 = "********************************************************************";
 		loadData();
 		String name = showMenu.promptName();
 		if (playerLogin(name)) {
 			for (Player player: players) {
 				if (player.getName().equals(name)) {
 					currentPlayer = player;
-					System.out.print("Welcome Back: " + currentPlayer.getName() + " --- Your balance is: " + currentPlayer.getBalance());
+//					System.out.print("Welcome Back: " + currentPlayer.getName() + " --- Your balance is: " + currentPlayer.getBalance());
+					showMenu.showMassage();
+					System.out.format(leftAlignFormat, player.getName(), player.getBalance());
+					System.out.println(bottomLine3);
 				}
 			}
 		}
 		else {
 			currentPlayer = createNewPlayer(name);
 			System.out.println("Welcome " + currentPlayer.getName() + " --- Your initial balance is: " + currentPlayer.getBalance());
-			
+			showMenu.showMassage();
+			System.out.format(leftAlignFormat2,currentPlayer.getName(),currentPlayer.getBalance());
+			System.out.println(bottomLine3);
 		}
 		launchApplication();
 	}
