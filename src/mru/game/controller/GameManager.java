@@ -42,7 +42,7 @@ public class GameManager {
 			for (Player player: players) {
 				if (player.getName().equals(name)) {
 					currentPlayer = player;
-					System.out.println("Welcome Back: " + currentPlayer.getName() + " --- Your balance is: " + currentPlayer.getBalance());
+					System.out.print("Welcome Back: " + currentPlayer.getName() + " --- Your balance is: " + currentPlayer.getBalance());
 				}
 			}
 		}
@@ -132,13 +132,23 @@ public class GameManager {
 			switch (option) {
 			case 't':
 				ArrayList <Player> topPlayers = topPlayer();
+				String leftAlignFormat = "| %-9s | %-10d |%n";
+				String bottomLine = "+-----------+------------+%n";
+				showMenu.prtintTopPlayer();
 				for (Player topPlayer: topPlayers) {
-					System.out.println(topPlayer.getName()+" | " + topPlayer.getNumberOfWins());
+					System.out.printf(leftAlignFormat, topPlayer.getName(), topPlayer.getNumberOfWins());
+					System.out.format(bottomLine);
 				}
+//				showMenu.prtintTopPlayer();
 				break;
 			case 'l':
+				String leftAlignFormat2 = "| %-9s | %-10d | %-9d |%n";
+				String bottomLine2 = "+===========+============+===========+%n";
 				Player nameFound = lookForName();
-				showMenu.showPlayer(nameFound);
+				showMenu.printNameFound();
+				System.out.printf(leftAlignFormat2, nameFound.getName(), nameFound.getNumberOfWins(), nameFound.getBalance());
+				System.out.format(bottomLine2);
+//				showMenu.showPlayer(nameFound);
 				break;
 			case 'b':
 				showMenu.showMainMenu();

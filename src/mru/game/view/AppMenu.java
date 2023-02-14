@@ -48,4 +48,17 @@ public class AppMenu {
 	public void showPlayer(Player nameFound) {
 		System.out.println(nameFound);
 	}
+	public void prtintTopPlayer() {
+		System.out.format("       -TOP Player-    %n");
+		System.out.format("+===========+============+%n");
+		System.out.format("|  Name     |    #WINS   |%n");
+		System.out.format("+===========+============+%n");
+	}
+	public void printNameFound() {
+		System.out.format("             -Player Info-            %n");
+		System.out.format("+===========+============+===========+%n");
+		System.out.format("|  Name     | #WINS      | Balance   |%n");
+		System.out.format("+===========+============+===========+%n");
+
+	}
 }
