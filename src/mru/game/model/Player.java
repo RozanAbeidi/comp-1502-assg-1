@@ -42,6 +42,7 @@ public class Player {
 	public String toString() {
 		return "Name: " + name + " Balance: " + balance + " Number Of Wins: " + numberOfWins;
 	}
+	//formatting the string for writing in the txt file.
 	
 	public String format() {
 		return name+","+balance+","+numberOfWins;
