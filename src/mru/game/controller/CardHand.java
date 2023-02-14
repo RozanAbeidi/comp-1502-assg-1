@@ -1,36 +1,47 @@
 package mru.game.controller;
 
 import java.util.ArrayList;
+
 public class CardHand {
 
-
-private ArrayList<Card> heldCards;
-
-public CardHand(ArrayList<Card> cards) {
-	 heldCards = cards;
-}
-public CardHand() {
-	heldCards = new ArrayList<>();
-}
-public  int  score() {
-	int totalScore = 0;
-	
-	for (Card card: heldCards) {
-		totalScore = totalScore +card.getRank();
+	@Override
+	public String toString() {
+		return "CardHand [heldCards=" + heldCards + "]";
 	}
-	return totalScore % 10;
-	
 
+	private ArrayList<Card> heldCards;
 
-}
-public void add(Card card) {
-	heldCards.add(card);
-}
+	public CardHand(ArrayList<Card> cards) {
+		heldCards = cards;
+	}
 
-public static void main(String[] args) {
-CardDeck deck = new CardDeck();
-CardHand playerhand = new CardHand(new ArrayList<Card>());
-CardHand bankerhand = new CardHand(new ArrayList<Card>());
+	public CardHand() {
+		heldCards = new ArrayList<>();
+	}
 
-}
+	public int score() {
+		int totalScore = 0;
+
+		for (Card card : heldCards) {
+			totalScore = totalScore + card.getRank();
+		}
+		return totalScore % 10;
+
+	}
+
+	public void add(Card card) {
+		heldCards.add(card);
+	}
+
+	public int numCards() {
+		return heldCards.size();
+	}
+
+	public static void main(String[] args) {
+		CardDeck deck = new CardDeck();
+		CardHand playerhand = new CardHand(new ArrayList<Card>());
+		CardHand bankerhand = new CardHand(new ArrayList<Card>());
+
+	}
+
 }

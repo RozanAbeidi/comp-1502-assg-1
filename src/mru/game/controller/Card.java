@@ -2,6 +2,7 @@ package mru.game.controller;
 
 /**
  * This class represents a card
+ * 
  * @author ksalmani
  * @version 1.0
  */
@@ -11,7 +12,7 @@ public class Card {
 	 * rank represents the rank of the current card
 	 */
 	private int rank;
-	
+
 	/**
 	 * suit represents the suit of the current card
 	 */
@@ -19,6 +20,7 @@ public class Card {
 
 	/**
 	 * This constructor sets the rank and suit of card
+	 * 
 	 * @param rank shows the rank of the card
 	 * @param suit shows the suit of the card
 	 */
@@ -29,6 +31,7 @@ public class Card {
 
 	/**
 	 * rank getter method
+	 * 
 	 * @return the rank
 	 */
 	public int getRank() {
@@ -37,6 +40,7 @@ public class Card {
 
 	/**
 	 * rank setter method
+	 * 
 	 * @param rank the rank to set
 	 */
 	public void setRank(int rank) {
@@ -45,6 +49,7 @@ public class Card {
 
 	/**
 	 * suit getter method
+	 * 
 	 * @return the suit
 	 */
 	public String getSuit() {
@@ -53,6 +58,7 @@ public class Card {
 
 	/**
 	 * suit setter method
+	 * 
 	 * @param suit the suit to set
 	 */
 	public void setSuit(String suit) {
@@ -60,12 +66,13 @@ public class Card {
 	}
 
 	/**
-	 * This method overrides the toString method and shows the dat in the format we want
+	 * This method overrides the toString method and shows the dat in the format we
+	 * want
 	 */
 	public String toString() {
-		
+
 		String name = "King of ";
-		
+
 		if (rank >= 2 && rank <= 10)
 			name = rank + " of ";
 		else if (rank == 1)
@@ -74,7 +81,7 @@ public class Card {
 			name = "Jack of ";
 		else if (rank == 12)
 			name = "Queen of ";
-		
+
 		return name + suit;
 	}
 
