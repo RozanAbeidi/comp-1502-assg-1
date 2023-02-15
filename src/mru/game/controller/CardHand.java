@@ -44,4 +44,9 @@ public class CardHand {
 
 	}
 
+	public Card get(int i) {
+		// TODO Auto-generated method stub
+		return heldCards.get(i - 1);
+	}
+
 }
