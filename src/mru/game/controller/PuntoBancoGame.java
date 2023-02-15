@@ -102,14 +102,18 @@ public class PuntoBancoGame {
 	private void resultstable(CardHand playerhand, CardHand bankerhand) {
 //		String pPoint = "PLayer point:";
 //		String bPoint = "Banker point:";
+
+		String playerFirstCard = playerhand.get(1).toString();
+		String playerThirdCard = "";
+
 		System.out.println("+======================+======================+");
 		System.out.println("||PLAYER               |BANKER               ||");
 		System.out.println("+======================+======================+");
-		System.out.printf("| %-20s | %-20s |%n", playerhand.get(1), bankerhand.get(1));
+		System.out.printf("| %-20s | %-20s |%n", playerFirstCard, bankerhand.get(1));
 		System.out.println("+----------------------+----------------------+");
 		System.out.printf("| %-20s | %-20s |%n", playerhand.get(2), bankerhand.get(2));
 		System.out.println("+----------------------+----------------------+");
-		System.out.printf("| %-20s | %-20s |%n", playerhand.get(3), bankerhand.get(3));
+		System.out.printf("| %-20s | %-20s |%n", playerThirdCard, bankerhand.get(3));
 		System.out.println("+----------------------+----------------------+");
 		System.out.printf("|PLAYER POINTS: %-6d |Banker POINtS: %-6d | %n", playerhand.score(), bankerhand.score());
 		System.out.println("+======================+======================+");
