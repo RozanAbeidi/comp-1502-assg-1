@@ -39,21 +39,28 @@ public class AppMenu {
 		option = keyboard.nextLine().toLowerCase().charAt(0);
 		return option;
 	}
-	
+	//prmopting user for their name
 	public String promptName() {
 		 System.out.print("What is your name sir? Name: ");
 		 String name = keyboard.nextLine().trim();
 		 return name;
 	}
+	//showing player it was only used for testing and can be called for simplified answers while testing
 	public void showPlayer(Player nameFound) {
 		System.out.println(nameFound);
 	}
+	/**
+	 * formats the print statement while called provides the skeleton of the top player output format.
+	 */
 	public void prtintTopPlayer() {
 		System.out.format("       -TOP Player-    %n");
 		System.out.format("+===========+============+%n");
 		System.out.format("|  Name     |    #WINS   |%n");
 		System.out.format("+===========+============+%n");
 	}
+	/**
+	 * formats the print statement while called provides the skeleton of the existing player info. output format.
+	 */
 	public void printNameFound() {
 		System.out.format("             -Player Info-            %n");
 		System.out.format("+===========+============+===========+%n");
@@ -61,6 +68,10 @@ public class AppMenu {
 		System.out.format("+===========+============+===========+%n");
 
 	}
+	/**
+	 * formats the print statement while called provides the skeleton of the new player output format. this is mostly used for testing.
+	 * but i turned it into a final print just to use it.
+	 */
 	public void showMassage() {
 //		String leftAlignFormat = "| %-9s | %-10d |%n";
 		System.out.format("********************************************************************%n");
