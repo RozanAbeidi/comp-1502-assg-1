@@ -46,9 +46,9 @@ public class CardHand {
 	}
 
 	public static void main(String[] args) {
-		CardDeck deck = new CardDeck();
-		CardHand playerhand = new CardHand(new ArrayList<Card>());
-		CardHand bankerhand = new CardHand(new ArrayList<Card>());
+//		CardDeck deck = new CardDeck();
+//		CardHand playerhand = new CardHand(new ArrayList<Card>());
+//		CardHand bankerhand = new CardHand(new ArrayList<Card>());
 
 	}
 

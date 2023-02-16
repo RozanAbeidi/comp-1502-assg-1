@@ -6,9 +6,9 @@ public class PuntoBancoGame {
 	}
 
 	public static void main(String[] args) {
-		PuntoBancoGame puntoBancoGame = new PuntoBancoGame();
-		String winner = puntoBancoGame.winner();
-		System.out.print(winner);
+//		PuntoBancoGame puntoBancoGame = new PuntoBancoGame();
+//		String winner = puntoBancoGame.winner();
+//		System.out.print(winner);
 
 		// make a PuntoBancoGame object
 		// call its winner() method and print out the result

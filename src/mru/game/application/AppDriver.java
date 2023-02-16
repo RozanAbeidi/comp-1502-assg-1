@@ -13,14 +13,14 @@ public class AppDriver {
 		// hint - It usually calls method from GameManager class to start the app, so
 		// only one or two lines will be written here
 
-//		new GameManager();
+		new GameManager();
 //		new PuntoBancoGame().winner();
 //		AppMenu am = new AppMenu();
 //		am.prtintPlayer();
 //		CardDeck k = new CardDeck();
 //		System.out.println(k.drawCard());
-		AppMenu am = new AppMenu();
-		am.showWinner("Player won", 100);
+//		AppMenu am = new AppMenu();
+//		am.showWinner("Player won", 100);
 	}
 	/**
 	 * Most of the coding logic and code are inspired from

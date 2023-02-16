@@ -232,6 +232,35 @@ public class GameManager {
 	
 	private void playGame() {
 		// TODO Auto-generated method stub
+		boolean flag = false;
+		String pick = showMenu.showGameMenu();
+		do {
+		if (currentPlayer.getBalance() >= 100) { 
+		int bet = showMenu.betAmmount(currentPlayer.getBalance());
+		PuntoBancoGame game = new PuntoBancoGame();
+		String winner = game.winner();
+		if (pick.equals(winner)) {
+			currentPlayer.setBalance(currentPlayer.getBalance()+bet);
+			currentPlayer.setNumberOfWins(currentPlayer.getNumberOfWins()+ 1);
+			showMenu.showWinner(bet);
+		}
+		else {
+			currentPlayer.setBalance(currentPlayer.getBalance() - bet);
+			showMenu.showLoser(bet);
+		}
+//		System.out.println("do You wanna Play again?");
+		flag = showMenu.playAgain();
+	}
+		else {
+			System.out.println("You do not have sufficient amount of balance returning to the main menu");
+			showMenu.showMainMenu();
+		}
+		}
+		while(flag);
+//		System.out.print(winner);
+//		PuntoBancoGame game = new PuntoBancoGame();
+//		showMenu.showGameMenu();
+		
 	}
 	/**
 	 * this method takes a string name inside of the constructor and checks the players list has the name 

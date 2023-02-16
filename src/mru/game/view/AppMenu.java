@@ -79,22 +79,63 @@ public class AppMenu {
 //		System.out.format("********************************************************************%n");
 	}
 	
-	public void showGameMenu() {
+	public String showGameMenu() {
+		char option;
+		String pick;
 		System.out.println("What do you want to bet on?");
 		System.out.println("\t(P) Player Wins");
 		System.out.println("\t(B) Banker Wins");
 		System.out.println("\t(T) Tie Game");
 		System.out.println("Enter Your Choice please:");
+		option = keyboard.nextLine().toLowerCase().charAt(0);
+		switch (option) {
+		case 't':
+			pick = "tie";
+			break;
+		case 'b':
+			pick = "bankerhand wins";
+			break;
+		case 'p':
+			pick = "playerhand wins";
+			break;
+			default :
+				System.out.println("Not a valid input");
+				pick = showGameMenu();
+		}
+			
+		return pick;
 	}
-	public void showWinner(String whoWon, int betAmount){
+	public void showWinner(int betAmount){
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
-		System.out.printf("$ %-9s %8d$ $ \n",whoWon, betAmount);
+		System.out.printf("$ Player Won %-8d$ $ \n",betAmount);
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
 	}
-	public void showLoser(String whoLost, int betAmount){
+	public void showLoser(int betAmount){
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
-		System.out.printf("$ %-9s %7d$ $ \n",whoLost, betAmount);
+		System.out.printf("$ Player Lost  %-7d$ $ \n",betAmount);
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
+	}
+	public int betAmmount(int balance) {
+		System.out.println("How Much you want to bet");
+		String ammount = keyboard.nextLine();
+		int amt = Integer.parseInt(ammount);
+		if (balance < amt) {
+			System.out.println("you do not have enough funds to place this bet");
+			return betAmmount(balance);
+		}
+		return Integer.parseInt(ammount);
+	}
+	public boolean playAgain() {
+		System.out.println("Do you wanna play again?(y/n)");
+		char option = keyboard.nextLine().toLowerCase().charAt(0);
+		switch (option) {
+		case 'y':
+			return true;
+		case 'n':
+			return false;
+		default:
+			return playAgain();
+		}
 	}
 	/**
 	 * Most of the coding logic and code are inspired from
