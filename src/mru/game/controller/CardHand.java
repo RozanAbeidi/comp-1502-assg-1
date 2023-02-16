@@ -23,10 +23,18 @@ public class CardHand {
 		int totalScore = 0;
 
 		for (Card card : heldCards) {
-			totalScore = totalScore + card.getRank();
+			totalScore = totalScore + cardValue(card.getRank());
 		}
 		return totalScore % 10;
 
+	}
+
+	private int cardValue(int rank) {
+		if (rank >= 10)
+			// TODO Auto-generated method stub
+			return 0;
+		else
+			return rank;
 	}
 
 	public void add(Card card) {
@@ -46,7 +54,11 @@ public class CardHand {
 
 	public Card get(int i) {
 		// TODO Auto-generated method stub
-		return heldCards.get(i - 1);
+		if (i > numCards()) {
+			return null;
+		} else {
+			return heldCards.get(i - 1);
+		}
 	}
 
 }

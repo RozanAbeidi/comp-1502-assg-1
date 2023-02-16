@@ -37,8 +37,6 @@ public class PuntoBancoGame {
 
 		if (playerhand.score() == 8 || playerhand.score() == 9 || bankerhand.score() == 8 || bankerhand.score() == 9) {
 
-			System.out.println(playerhand);
-			System.out.println(bankerhand);
 			resultstable(playerhand, bankerhand);
 
 			return result(playerhand, bankerhand);
@@ -90,9 +88,6 @@ public class PuntoBancoGame {
 
 		}
 
-		System.out.println(playerhand);
-		System.out.println(bankerhand);
-
 		resultstable(playerhand, bankerhand);
 
 		return result(playerhand, bankerhand);
@@ -100,17 +95,37 @@ public class PuntoBancoGame {
 
 	private void resultstable(CardHand playerhand, CardHand bankerhand) {
 
+		String playerFirstCard = cardString(playerhand.get(1));
+		String bankerFirstCard = cardString(bankerhand.get(1));
+		String playerSecondCard = cardString(playerhand.get(2));
+		String bankerSecondCard = cardString(bankerhand.get(2));
+
+		String playerThirdCard = cardString(playerhand.get(3));
+		String bankerThirdCard = cardString(bankerhand.get(3));
+
 		System.out.println("+======================+======================+");
 		System.out.println("||PLAYER               |BANKER               ||");
 		System.out.println("+======================+======================+");
-		for (int i = 1; i <= bankerhand.numCards(); i++) {
-			System.out.printf("| %-20s | %-20s |%n", playerhand.get(i), bankerhand.get(i));
-			System.out.println("+----------------------+----------------------+");
+		System.out.printf("| %-20s | %-20s |%n", playerFirstCard, bankerFirstCard);
+		System.out.println("+----------------------+----------------------+");
+		System.out.printf("| %-20s | %-20s |%n", playerSecondCard, bankerSecondCard);
+		System.out.println("+----------------------+----------------------+");
+		System.out.printf("| %-20s | %-20s |%n", playerThirdCard, bankerThirdCard);
+		System.out.println("+----------------------+----------------------+");
+		System.out.printf("|PLAYER POINTS: %-6d |Banker POINtS: %-6d | %n", playerhand.score(), bankerhand.score());
+		System.out.println("+======================+======================+");
+
+	}
+
+	private String cardString(Card card) {
+		if (card == null) {
+			return "";
+		} else {
+			return card.toString();
 
 		}
+		// TODO Auto-generated method stub
 
-		System.out.printf("|PLAYER POINTS: %-6d |Banker POINTS: %-6d | %n", playerhand.score(), bankerhand.score());
-		System.out.println("+======================+======================+");
 	}
 
 	public String result(CardHand playerhand, CardHand bankerhand) {
@@ -126,28 +141,6 @@ public class PuntoBancoGame {
 		}
 
 		return "tie";
+
 	}
-
-//	CardDeck fromDeck = new CardDeck();
-//	Card currentCard = fromDeck.getDeck().remove(0);
-//	
-//			
-//	CardDeck fromDeck = new CardDeck();
-//	Card currentCard = fromDeck.getDeck().remove(0);
-
-//	String playerFirstCard = playerhand.get(1).toString();
-//	String playerThirdCard = "";
-//	System.out.println("+======================+======================+");
-//	System.out.println("||PLAYER               |BANKER               ||");
-//	System.out.println("+======================+======================+");
-//	System.out.printf("| %-20s | %-20s |%n", playerFirstCard, bankerhand.get(1));
-//	System.out.println("+----------------------+----------------------+");
-//	System.out.printf("| %-20s | %-20s |%n", playerhand.get(2), bankerhand.get(2));
-//	System.out.println("+----------------------+----------------------+");
-//	System.out.printf("| %-20s | %-20s |%n", playerThirdCard, bankerhand.get(3));
-//	System.out.println("+----------------------+----------------------+");
-//	System.out.printf("|PLAYER POINTS: %-6d |Banker POINtS: %-6d | %n", playerhand.score(), bankerhand.score());
-//	System.out.println("+======================+======================+");
-//
-
 }
