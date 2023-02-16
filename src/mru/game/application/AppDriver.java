@@ -2,6 +2,7 @@ package mru.game.application;
 
 import mru.game.controller.CardDeck;
 import mru.game.controller.GameManager;
+import mru.game.view.AppMenu;
 //import mru.game.controller.PuntoBancoGame;
 
 public class AppDriver {
@@ -16,8 +17,10 @@ public class AppDriver {
 //		new PuntoBancoGame().winner();
 //		AppMenu am = new AppMenu();
 //		am.prtintPlayer();
-		CardDeck k = new CardDeck();
-		System.out.println(k.drawCard());
+//		CardDeck k = new CardDeck();
+//		System.out.println(k.drawCard());
+		AppMenu am = new AppMenu();
+		am.showWinner("Player won", 100);
 	}
 	/**
 	 * Most of the coding logic and code are inspired from
