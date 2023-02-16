@@ -21,6 +21,12 @@ public class PuntoBancoGame {
 	 */
 	private CardDeck deck;
 
+	/**
+	 * This method is used to draw and add two cards to the banker's hand and the
+	 * player's hand. The banker and the player may get a third card based on
+	 * certain conditions.
+	 */
+
 	public String winner() {
 		CardHand playerhand = new CardHand();
 		CardHand bankerhand = new CardHand();
@@ -35,6 +41,10 @@ public class PuntoBancoGame {
 		card = deck.drawCard();
 		bankerhand.add(card);
 
+		/**
+		 * This is the sequence of code for the game rules that determine whether or not
+		 * the player or banker can draw a third card and the winner.
+		 */
 		if (playerhand.score() == 8 || playerhand.score() == 9 || bankerhand.score() == 8 || bankerhand.score() == 9) {
 
 			resultstable(playerhand, bankerhand);
@@ -93,6 +103,10 @@ public class PuntoBancoGame {
 		return result(playerhand, bankerhand);
 	}
 
+	/**
+	 * This method is used get the cards for the player and banker with two
+	 * parameters which are the CardHand playerhand and CardHand bankerhand.
+	 */
 	private void resultstable(CardHand playerhand, CardHand bankerhand) {
 
 		String playerFirstCard = cardString(playerhand.get(1));
@@ -117,6 +131,10 @@ public class PuntoBancoGame {
 
 	}
 
+	/**
+	 * This method is used to have the playerhand be able to get a third card from
+	 * the deck.
+	 */
 	private String cardString(Card card) {
 		if (card == null) {
 			return "";
@@ -128,6 +146,10 @@ public class PuntoBancoGame {
 
 	}
 
+	/**
+	 * This method is used return who the winner is based on the score of the
+	 * playerhand and the bankerhand.
+	 */
 	public String result(CardHand playerhand, CardHand bankerhand) {
 
 		if (playerhand.score() > bankerhand.score()) {
@@ -144,4 +166,3 @@ public class PuntoBancoGame {
 
 	}
 }
- 

@@ -9,6 +9,11 @@ public class CardHand {
 		return "CardHand [heldCards=" + heldCards + "]";
 	}
 
+	/**
+	 * This ArrayList method is used to cards are held in the player's hand and the
+	 * banker's hand.
+	 */
+
 	private ArrayList<Card> heldCards;
 
 	public CardHand(ArrayList<Card> cards) {
@@ -19,6 +24,10 @@ public class CardHand {
 		heldCards = new ArrayList<>();
 	}
 
+	/**
+	 * This method is used to calculate the score based on the rank and the face
+	 * cards(Queen, King, Jack) are worth zero.
+	 */
 	public int score() {
 		int totalScore = 0;
 
@@ -28,6 +37,10 @@ public class CardHand {
 		return totalScore % 10;
 
 	}
+
+	/**
+	 * This method is used to return zero for the face cards(Queen, King, Jack).
+	 */
 
 	private int cardValue(int rank) {
 		if (rank >= 10)
@@ -41,6 +54,10 @@ public class CardHand {
 		heldCards.add(card);
 	}
 
+	/**
+	 * This method is used for how many cards there are for the player and the
+	 * banker.
+	 */
 	public int numCards() {
 		return heldCards.size();
 	}
@@ -52,6 +69,10 @@ public class CardHand {
 
 	}
 
+	/**
+	 * This method is used to get make sure that cards that the cards the player and
+	 * the banker get are not out of bound.
+	 */
 	public Card get(int i) {
 		// TODO Auto-generated method stub
 		if (i > numCards()) {
