@@ -46,6 +46,8 @@ public class CardDeck {
 
 	/**
 	 * this method shuffle the deck after creating a new deck
+	 * 
+	 * @return deck.remove(0)
 	 */
 	private void shuffleDeck() {
 		Collections.shuffle(deck);

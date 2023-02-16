@@ -27,6 +27,8 @@ public class CardHand {
 	/**
 	 * This method is used to calculate the score based on the rank and the face
 	 * cards(Queen, King, Jack) are worth zero.
+	 * 
+	 * @return totalScore % 10
 	 */
 	public int score() {
 		int totalScore = 0;
@@ -40,6 +42,9 @@ public class CardHand {
 
 	/**
 	 * This method is used to return zero for the face cards(Queen, King, Jack).
+	 * 
+	 * @param rank
+	 * @return 0 or rank
 	 */
 
 	private int cardValue(int rank) {
@@ -57,6 +62,8 @@ public class CardHand {
 	/**
 	 * This method is used for how many cards there are for the player and the
 	 * banker.
+	 * 
+	 * @return number of cards on each hand
 	 */
 	public int numCards() {
 		return heldCards.size();
@@ -72,6 +79,9 @@ public class CardHand {
 	/**
 	 * This method is used to get make sure that cards that the cards the player and
 	 * the banker get are not out of bound.
+	 * 
+	 * @param i
+	 * @return null or heldCards.get(i - 1)
 	 */
 	public Card get(int i) {
 		// TODO Auto-generated method stub
