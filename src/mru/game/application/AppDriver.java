@@ -1,5 +1,6 @@
 package mru.game.application;
 
+import mru.game.controller.CardDeck;
 import mru.game.controller.GameManager;
 //import mru.game.controller.PuntoBancoGame;
 
@@ -11,11 +12,12 @@ public class AppDriver {
 		// hint - It usually calls method from GameManager class to start the app, so
 		// only one or two lines will be written here
 
-		new GameManager();
+//		new GameManager();
 //		new PuntoBancoGame().winner();
 //		AppMenu am = new AppMenu();
 //		am.prtintPlayer();
-
+		CardDeck k = new CardDeck();
+		System.out.println(k.drawCard());
 	}
 	/**
 	 * Most of the coding logic and code are inspired from
