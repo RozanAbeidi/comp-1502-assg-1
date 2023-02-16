@@ -78,7 +78,11 @@ public class AppMenu {
 //		System.out.format(leftAlignFormat, name, balance +"%n");
 //		System.out.format("********************************************************************%n");
 	}
-	
+	/**
+	 * shows the game menu and returns a string after passing the char though an
+	 * switch statement.
+	 * @return pick.
+	 */
 	public String showGameMenu() {
 		char option;
 		String pick;
@@ -105,16 +109,33 @@ public class AppMenu {
 			
 		return pick;
 	}
+	/**
+	 * displays the winning statement takes int bet amount in the constructor 
+	 * and returns the  formated print statement using that ammount.
+	 * @param betAmount
+	 */
 	public void showWinner(int betAmount){
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
-		System.out.printf("$ Player Won %-8d$ $ \n",betAmount);
+		System.out.printf("$ Player Won %8d$ $ \n",betAmount);
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
 	}
+	/**
+	 * displays the losing statement takes int bet amount in the constructor 
+	 * and returns the  formated print statement using that ammount.
+	 * @param betAmount
+	 */
 	public void showLoser(int betAmount){
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
-		System.out.printf("$ Player Lost  %-7d$ $ \n",betAmount);
+		System.out.printf("$ Player Lost  %8d$ $ \n",betAmount);
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
 	}
+	/**
+	 * takes a balance also input from the user about the amount
+	 * compares it so that if the player has enough money to play or not if not
+	 * returns him to the main menu again. 
+	 * @param balance
+	 * @return amount
+	 */
 	public int betAmmount(int balance) {
 		System.out.println("How Much you want to bet");
 		String ammount = keyboard.nextLine();
@@ -125,6 +146,12 @@ public class AppMenu {
 		}
 		return Integer.parseInt(ammount);
 	}
+	/**
+	 * checks that the user want to play the game again or not 
+	 * and returns a boolean according to that to keep the so while 
+	 * loop running in the GameManager.java 
+	 * @return true or false;
+	 */
 	public boolean playAgain() {
 		System.out.println("Do you wanna play again?(y/n)");
 		char option = keyboard.nextLine().toLowerCase().charAt(0);

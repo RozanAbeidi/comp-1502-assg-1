@@ -128,21 +128,20 @@ public class GameManager {
 	/**
 	 * this method is responsible for taking the whole list of data and bubble sorting the whole integer data.
 	 * The highest number of wins are added to the list. it also checks for the player that have the same highest
-	 * number
-	 * of wins
+	 * number of wins
 	 * @return topPlayers
 	 */
 	private ArrayList<Player> topPlayer() {
 		ArrayList <Player> topPlayers = new ArrayList<>();
 		int numWins = 0;
-		for (Player player: players) {
+		for (Player player: players) {//checking the whole player list for their number of wins 
 			if (player.getNumberOfWins() > numWins) {
 				numWins = player.getNumberOfWins();
-				topPlayers.clear();
-				topPlayers.add(player);
+				topPlayers.clear();// keeps clearing the player list until certain conditions are meet such as the highest number of wins had been found.
+				topPlayers.add(player);//adds the player to new topPlayer list.
 			}
-			else if (player.getNumberOfWins() == numWins) {
-				topPlayers.add(player);
+			else if (player.getNumberOfWins() == numWins) {//checks the list again to see that two or more players have the same number of wins or not.
+				topPlayers.add(player);//adds the player to new topPlayer list.
 			}
 		}
 //		System.out.println(players);
@@ -158,11 +157,12 @@ public class GameManager {
 	private void exit() throws IOException {
 		PrintWriter pw = new PrintWriter(db);
 		
-		System.out.println("saving files please wait");
+		System.out.println("Saving files Please wait");
 		for (Player items: players) {
 			pw.println(items.format());
 		}
 		pw.close();
+		System.out.println("Done saving. See you again very soon. Thank you!!");
 		
 	}
 	/**
@@ -179,8 +179,8 @@ public class GameManager {
 			switch (option) {
 			case 't':
 				ArrayList <Player> topPlayers = topPlayer();
-				String leftAlignFormat = "| %-9s | %-10d |%n";//adding format string to simplify my print statement.
-				String bottomLine = "+-----------+------------+%n";
+				String leftAlignFormat = "| %-9s | %8d   |%n";//adding format string to simplify my print statement.
+				String bottomLine = "+-----------+------------+%n";//adding format string to simplify my print statement.
 				showMenu.prtintTopPlayer();
 				for (Player topPlayer: topPlayers) {
 					System.out.printf(leftAlignFormat, topPlayer.getName(), topPlayer.getNumberOfWins());
@@ -189,8 +189,8 @@ public class GameManager {
 //				showMenu.prtintTopPlayer();
 				break;
 			case 'l':
-				String leftAlignFormat2 = "| %-9s | %-10d | %-9d |%n";
-				String bottomLine2 = "+===========+============+===========+%n";
+				String leftAlignFormat2 = "| %-9s | %-10d | %8d  |%n";//adding format string to simplify my print statement.
+				String bottomLine2 = "+===========+============+===========+%n";//adding format string to simplify my print statement.
 				Player nameFound = lookForName();
 				showMenu.printNameFound();
 				System.out.printf(leftAlignFormat2, nameFound.getName(), nameFound.getNumberOfWins(), nameFound.getBalance());
@@ -215,7 +215,7 @@ public class GameManager {
 	private Player lookForName() {
 		String name = showMenu.promptName();
 		Player nameFound = null;
-		for (Player names: players) {
+		for (Player names: players) {//scans the whole player list and look for their name
 			if (names.getName().equals(name)) {
 				nameFound = names;
 				break;
@@ -224,39 +224,42 @@ public class GameManager {
 //				System.out.println("Player not found returning to main menu");
 			}
 		}
-		return nameFound;
+		return nameFound;// after the loop it returns with the actual player.
 	}
 	
-
-		
 	
+		
+	/**
+	 * This play game method actually calls the punto banco game and a do-while loop is created
+	 * which run on the users statement if they want to continue or not which sets the flag to true or false.
+	 */
 	private void playGame() {
 		// TODO Auto-generated method stub
-		boolean flag = false;
-		String pick = showMenu.showGameMenu();
+		boolean flag = false;//Initializing the variable;
+		String pick = showMenu.showGameMenu();//showing the game menu first.
 		do {
-		if (currentPlayer.getBalance() >= 100) { 
-		int bet = showMenu.betAmmount(currentPlayer.getBalance());
-		PuntoBancoGame game = new PuntoBancoGame();
-		String winner = game.winner();
-		if (pick.equals(winner)) {
-			currentPlayer.setBalance(currentPlayer.getBalance()+bet);
-			currentPlayer.setNumberOfWins(currentPlayer.getNumberOfWins()+ 1);
-			showMenu.showWinner(bet);
-		}
+			if (currentPlayer.getBalance() >= 100) { //checking their balance is less than 100 or not.
+				int bet = showMenu.betAmmount(currentPlayer.getBalance());//taking the user bet amount
+				PuntoBancoGame game = new PuntoBancoGame();//creating an object from punto banco game.
+				String winner = game.winner();// taking the winner
+		if (pick.equals(winner)) {//comparing player input with the winner string;
+			currentPlayer.setBalance(currentPlayer.getBalance()+bet);//if condition is met the player wins the betting amount and it gets added to their account.  
+			currentPlayer.setNumberOfWins(currentPlayer.getNumberOfWins()+ 1);//also it increases their number of wins by one
+			showMenu.showWinner(bet);//showing the winning print format from appmenu class.
+			}
 		else {
-			currentPlayer.setBalance(currentPlayer.getBalance() - bet);
-			showMenu.showLoser(bet);
+			currentPlayer.setBalance(currentPlayer.getBalance() - bet);//else the player losses the bet amount and it gets deducted from their account.
+			showMenu.showLoser(bet);//showing the lossing print format from the appmenu.
 		}
-//		System.out.println("do You wanna Play again?");
-		flag = showMenu.playAgain();
+//		System.out.println("do You want to Play again?");
+		flag = showMenu.playAgain();//showing the prompt if they want to play again or not. 
 	}
 		else {
 			System.out.println("You do not have sufficient amount of balance returning to the main menu");
 			showMenu.showMainMenu();
+			}
 		}
-		}
-		while(flag);
+		while(flag);// while the flag is true this loops keeps running.
 //		System.out.print(winner);
 //		PuntoBancoGame game = new PuntoBancoGame();
 //		showMenu.showGameMenu();

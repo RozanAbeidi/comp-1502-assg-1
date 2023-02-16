@@ -1,6 +1,6 @@
 Ali,75,10
-Khosro,1639,18
-Eli,1000,18
+Khosro,1649,19
+Eli,1100,19
 Junayed,100,0
 Thai,100,1
 Rozan,100,0
