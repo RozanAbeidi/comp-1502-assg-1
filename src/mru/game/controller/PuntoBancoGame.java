@@ -43,8 +43,9 @@ public class PuntoBancoGame {
 
 		/**
 		 * This is the sequence of code for the game rules that determine whether or not
-		 * the player or banker can draw a third card and the winner. return
-		 * result(playerhand, bankerhand)
+		 * the player or banker can draw a third card and the winner.
+		 * 
+		 * @return (playerhand, bankerhand)
 		 */
 		if (playerhand.score() == 8 || playerhand.score() == 9 || bankerhand.score() == 8 || bankerhand.score() == 9) {
 
