@@ -52,6 +52,10 @@ public class CardDeck {
 	}
 
 	public Card drawCard() {
+		if (deck.size() == 0) {
+			createDeck();
+			shuffleDeck();
+		}
 		return deck.remove(0);
 
 	}
