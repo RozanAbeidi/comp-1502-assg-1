@@ -39,7 +39,7 @@ public class AppMenu {
 		option = keyboard.nextLine().toLowerCase().charAt(0);
 		return option;
 	}
-	//prmopting user for their name
+	//Prompting user for their name
 	public String promptName() {
 		 System.out.print("What is your name sir? Name: ");
 		 String name = keyboard.nextLine().trim();
@@ -77,6 +77,24 @@ public class AppMenu {
 		System.out.format("********************************************************************%n");
 //		System.out.format(leftAlignFormat, name, balance +"%n");
 //		System.out.format("********************************************************************%n");
+	}
+	
+	public void showGameMenu() {
+		System.out.println("What do you want to bet on?");
+		System.out.println("\t(P) Player Wins");
+		System.out.println("\t(B) Banker Wins");
+		System.out.println("\t(T) Tie Game");
+		System.out.println("Enter Your Choice please:");
+	}
+	public void showWinner(String whoWon, int betAmount){
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
+		System.out.printf("$ %-9s %8d$ $ \n",whoWon, betAmount);
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
+	}
+	public void showLoser(String whoLost, int betAmount){
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
+		System.out.printf("$ %-9s %7d$ $ \n",whoLost, betAmount);
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
 	}
 	/**
 	 * Most of the coding logic and code are inspired from
